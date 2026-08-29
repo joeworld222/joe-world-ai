@@ -162,8 +162,7 @@ def ask_gemini(message, history):
         "https://generativelanguage.googleapis.com/v1beta/"
         "models/"
         + MODEL +
-        ":generateContent?key="
-        + GEMINI_API_KEY
+        ":generateContent"
     )
 
 
@@ -256,6 +255,10 @@ def ask_gemini(message, history):
 
     response = requests.post(
         url,
+        headers={
+            "x-goog-api-key": GEMINI_API_KEY,
+            "Content-Type": "application/json"
+        },
         json=payload,
         timeout=90
     )
