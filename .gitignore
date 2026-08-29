@@ -1,0 +1,10 @@
+.env
+__pycache__/
+*.pyc
+*_backup.py
+*_backup.js
+*_before_*.js
+*_before_*.html
+test_*.py
+memory.json
+memory_backup.json

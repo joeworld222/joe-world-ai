@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    >
+
+    <meta name="theme-color" content="#000000">
+
+    <title>Joe World AI</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- HEADER -->
+
+    <header class="header">
+
+        <button
+            class="icon-button"
+            id="menuButton"
+            aria-label="Open menu"
+        >☰</button>
+
+        <div class="brand">
+
+            <div class="brand-mark">
+                JW<span>AI</span>
+            </div>
+
+            <div class="brand-info">
+
+                <div class="brand-name">
+                    Joe World AI
+                </div>
+
+                <div class="online">
+                    <span class="online-dot"></span>
+                    Online
+                </div>
+
+            </div>
+
+        </div>
+
+        <button
+            class="icon-button header-new"
+            id="newChatButton"
+        >＋</button>
+
+    </header>
+
+
+    <!-- OVERLAY -->
+
+    <div class="overlay" id="overlay"></div>
+
+
+    <!-- SIDE NAV -->
+
+    <aside class="side-nav" id="sideNav">
+
+        <div class="side-header">
+
+            <div class="brand-mark small">
+                JW<span>AI</span>
+            </div>
+
+            <button
+                class="close-button"
+                id="closeMenu"
+            >×</button>
+
+        </div>
+
+
+        <button
+            class="new-chat-button"
+            id="sideNewChat"
+        >
+            <span>＋</span>
+            New chat
+        </button>
+
+
+        <div class="nav-section-title">
+            RECENT CHATS
+        </div>
+
+
+        <div
+            class="recent-chats"
+            id="recentChats"
+        ></div>
+
+
+        <div class="nav-divider"></div>
+
+
+        <nav class="navigation">
+
+            <button class="nav-item" id="uploadButton">
+                <span>＋</span>
+                Upload image
+            </button>
+
+            <button class="nav-item" id="voiceModeButton">
+    <span>◉</span>
+    <span>Voice Mode</span>
+</button>
+
+<button class="nav-item" id="memoryButton">
+                <span>◈</span>
+                Memory
+            </button>
+
+            <button class="nav-item" id="settingsButton">
+                <span>⚙</span>
+                Settings
+            </button>
+
+        </nav>
+
+
+        <div class="side-bottom">
+
+            <div class="nav-divider"></div>
+
+            <button
+                class="nav-item"
+                id="aboutButton"
+            >
+                <span>◆</span>
+                About Joe World
+            </button>
+
+            <a
+                class="nav-item"
+                href="mailto:joeworld222@gmail.com"
+            >
+                <span>✉</span>
+                Contact Joe World
+            </a>
+
+            <div class="creator-note">
+
+                <strong>Joe World AI</strong>
+
+                <span>
+                    Created, designed & developed by Joe World
+                </span>
+
+            </div>
+
+        </div>
+
+    </aside>
+
+
+    <!-- CHAT -->
+
+    <main
+        class="chat"
+        id="chat"
+    >
+
+        <section class="welcome" id="welcome">
+
+            <div class="hero-mark">
+
+                <div class="hero-mark" aria-label="Joe World AI">
+                    <span class="hero-core"></span>
+                    <span class="hero-orbit"></span>
+                    <span class="hero-spark"></span>
+                </div>
+
+            </div>
+
+            <div class="gold-line"></div>
+
+            <h1>Joe World AI</h1>
+
+            <p>
+                Intelligent. Personal. Yours.
+            </p>
+
+            <div class="quick-actions">
+
+                <button
+                    data-prompt="Explain something interesting to me."
+                >
+                    ✦ Explore
+                </button>
+
+                <button
+                    data-prompt="Help me write something."
+                >
+                    ✎ Write
+                </button>
+
+                <button
+                    data-prompt="Help me with programming."
+                >
+                    &lt;/&gt; Code
+                </button>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- IMAGE PREVIEW -->
+
+    <div
+        class="image-preview"
+        id="imagePreview"
+    >
+
+        <div class="preview-card">
+
+            <img
+                id="previewImage"
+                alt="Selected image"
+            >
+
+            <div class="preview-info">
+
+                <strong id="previewName">
+                    Image selected
+                </strong>
+
+                <span>
+                    Ready to upload
+                </span>
+
+            </div>
+
+            <button
+                id="removeImage"
+                class="remove-image"
+            >×</button>
+
+        </div>
+
+    </div>
+
+
+    <!-- INPUT -->
+
+    <div class="input-container">
+
+        <div class="input-box">
+
+            <button
+                class="attach-button"
+                id="attachButton"
+            >＋</button>
+
+            <input
+                id="messageInput"
+                class="message-input"
+                type="text"
+                placeholder="Message Joe World AI..."
+                autocomplete="off"
+                spellcheck="true"
+            >
+
+            <button
+                class="voice-button"
+                id="voiceButton"
+                title="Voice input"
+            >🎙️</button>
+
+            <button
+                class="send-button"
+                id="sendButton"
+            >➤</button>
+
+        </div>
+
+        <div class="input-hint">
+            Joe World AI can make mistakes. Check important information.
+        </div>
+
+    </div>
+
+
+    <!-- FILE INPUT -->
+
+    <input
+        type="file"
+        id="imageInput"
+        accept="image/*"
+        hidden
+    >
+
+
+    <!-- MODAL -->
+
+    <div
+        class="modal-overlay"
+        id="modalOverlay"
+    >
+
+        <div
+            class="modal"
+            id="modal"
+        >
+
+            <div class="modal-header">
+
+                <div>
+                    <div
+                        class="modal-title"
+                        id="modalTitle"
+                    >
+                        Settings
+                    </div>
+
+                    <div
+                        class="modal-subtitle"
+                        id="modalSubtitle"
+                    >
+                        Joe World AI
+                    </div>
+                </div>
+
+                <button
+                    class="modal-close"
+                    id="modalClose"
+                >×</button>
+
+            </div>
+
+            <div
+                class="modal-content"
+                id="modalContent"
+            ></div>
+
+        </div>
+
+    </div>
+
+
+    <script src="app.js"></script>
+
+</div>
+
+
+
+
+<!-- ==========================================
+     JOE WORLD AI — VOICE MODE
+========================================== -->
+
+<div id="voiceMode" class="voice-mode">
+
+    <div class="voice-topbar">
+
+        <button id="closeVoiceMode" class="voice-close">
+            ×
+        </button>
+
+        <div class="voice-title">
+            <small>JOE WORLD</small>
+            <strong>VOICE MODE</strong>
+        </div>
+
+        <button id="voiceSettings" class="voice-settings">
+            ⚙
+        </button>
+
+    </div>
+
+
+    <div class="voice-center">
+
+        <div id="voiceOrb" class="voice-orb">
+
+            <div class="orb-core">
+                JW
+            </div>
+
+            <div class="orb-ring ring-one"></div>
+            <div class="orb-ring ring-two"></div>
+            <div class="orb-ring ring-three"></div>
+
+        </div>
+
+
+        <div id="voiceState" class="voice-state">
+            Ready
+        </div>
+
+
+        <div id="voiceTranscript" class="voice-transcript">
+            Tap the microphone to begin
+        </div>
+
+    </div>
+
+
+    <div class="voice-bottom">
+
+        <button
+            id="voiceMainButton"
+            class="voice-main-button"
+        >
+            🎙️
+        </button>
+
+        <div class="voice-hint">
+            Tap to talk
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- Voice settings panel -->
+<div id="voiceSettingsPanel" class="voice-settings-panel">
+
+    <div class="voice-settings-box">
+
+        <div class="voice-settings-head">
+            <div>
+                <small>JOE WORLD AI</small>
+                <h2>Voice Settings</h2>
+            </div>
+
+            <button id="closeVoiceSettings">×</button>
+        </div>
+
+        <label>
+            Voice
+        </label>
+
+        <select id="voiceSelect"></select>
+
+        <label>
+            Speaking speed
+        </label>
+
+        <input
+            id="voiceRate"
+            type="range"
+            min="0.65"
+            max="1.35"
+            value="0.95"
+            step="0.05"
+        >
+
+        <div class="voice-rate-value">
+            <span>Slow</span>
+            <strong id="voiceRateValue">0.95×</strong>
+            <span>Fast</span>
+        </div>
+
+        <button
+            id="testVoiceButton"
+            class="voice-test-button"
+        >
+            🔊 Test voice
+        </button>
+
+    </div>
+
+</div>
+
+</body>
+</html>
